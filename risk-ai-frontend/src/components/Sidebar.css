@@ -1,0 +1,43 @@
+.sidebar {
+  width: 250px;
+  min-height: 100vh;
+  background: #111827;
+  color: #ffffff;
+  padding: 24px 18px;
+  box-sizing: border-box;
+}
+
+.brand {
+  margin-bottom: 34px;
+}
+
+.brand h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.brand p {
+  margin: 6px 0 0;
+  color: #9ca3af;
+  font-size: 13px;
+}
+
+.nav-item {
+  width: 100%;
+  display: block;
+  border: none;
+  background: transparent;
+  color: #d1d5db;
+  text-align: left;
+  padding: 13px 14px;
+  border-radius: 10px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.nav-item:hover,
+.nav-item.active {
+  background: #2563eb;
+  color: #ffffff;
+}
