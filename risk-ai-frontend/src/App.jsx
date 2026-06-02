@@ -6,6 +6,7 @@ import api from "./services/api";
 function App() {
   const [page, setPage] = useState("Dashboard");
   const [loggedIn, setLoggedIn] = useState(!!localStorage.getItem("token"));
+  const role = localStorage.getItem("role");
   const [showProjectModal, setShowProjectModal] = useState(false);
 
   if (!loggedIn) {
@@ -14,25 +15,51 @@ function App() {
 
   const logout = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("role");
     setLoggedIn(false);
   };
   const openProjectModal = () => {
     setShowProjectModal(true);
   };
 
-  const menu = [
-    "Dashboard",
-    "Projects",
-    "Team",
-    "Tasks",
-    "Risk Registry",
-    "AI Mitigation",
-    "Quality Risks",
-    "Budget Tracker",
-    "Timeline",
-    "Resources",
-    "Reports",
-  ];
+  const menusByRole = {
+    ADMIN: [
+      "Dashboard",
+      "Projects",
+      "Team",
+      "Tasks",
+      "Risk Registry",
+      "AI Mitigation",
+      "Quality Risks",
+      "Budget Tracker",
+      "Timeline",
+      "Resources",
+      "Reports",
+    ],
+
+    MANAGER: [
+      "Dashboard",
+      "Projects",
+      "Team",
+      "Tasks",
+      "Risk Registry",
+      "AI Mitigation",
+      "Budget Tracker",
+      "Timeline",
+      "Resources",
+      "Reports",
+    ],
+
+    TEAM_MEMBER: [
+      "Dashboard",
+      "Tasks",
+      "Quality Risks",
+      "Timeline",
+      "Resources",
+    ],
+  };
+
+  const menu = menusByRole[role] || [];
 
   return (
     <div className="layout">
@@ -67,17 +94,55 @@ function App() {
           <button className="logout-btn" onClick={logout}>Logout</button>
         </div>
 
-       {page === "Dashboard" && <Dashboard openProjectModal={openProjectModal} />}
-       {page === "Projects" && <Projects openProjectModal={openProjectModal} />}
-       {page === "Team" && <Team openProjectModal={openProjectModal} />}
-       {page === "Tasks" && <Tasks openProjectModal={openProjectModal} />}
-       {page === "Risk Registry" && <RiskRegistry openProjectModal={openProjectModal} />}
-       {page === "AI Mitigation" && <AIMitigation openProjectModal={openProjectModal} />}
-       {page === "Quality Risks" && <QualityRisks openProjectModal={openProjectModal} />}
-       {page === "Budget Tracker" && <BudgetTracker openProjectModal={openProjectModal} />}
-       {page === "Timeline" && <Timeline openProjectModal={openProjectModal} />}
-       {page === "Resources" && <Resources openProjectModal={openProjectModal} />}
-       {page === "Reports" && <Reports openProjectModal={openProjectModal} />}
+       {page === "Dashboard" && (
+         <Dashboard openProjectModal={openProjectModal} />
+       )}
+
+       {page === "Projects" &&
+        (role === "ADMIN" || role === "MANAGER") && (
+         <Projects openProjectModal={openProjectModal} />
+       )}
+
+       {page === "Team" &&
+        (role === "ADMIN" || role === "MANAGER") && (
+         <Team openProjectModal={openProjectModal} />
+       )}
+
+       {page === "Tasks" && (
+         <Tasks openProjectModal={openProjectModal} />
+       )}
+
+       {page === "Risk Registry" &&
+        (role === "ADMIN" || role === "MANAGER") && (
+         <RiskRegistry openProjectModal={openProjectModal} />
+       )}
+
+       {page === "AI Mitigation" &&
+        (role === "ADMIN" || role === "MANAGER") && (
+         <AIMitigation openProjectModal={openProjectModal} />
+       )}
+
+       {page === "Quality Risks" && (
+         <QualityRisks openProjectModal={openProjectModal} />
+       )}
+
+       {page === "Budget Tracker" &&
+        (role === "ADMIN" || role === "MANAGER") && (
+         <BudgetTracker openProjectModal={openProjectModal} />
+       )}
+
+       {page === "Timeline" && (
+         <Timeline openProjectModal={openProjectModal} />
+       )}
+
+       {page === "Resources" && (
+         <Resources openProjectModal={openProjectModal} />
+       )}
+
+       {page === "Reports" &&
+        (role === "ADMIN" || role === "MANAGER") && (
+         <Reports openProjectModal={openProjectModal} />
+       )}
      </main>
 
 

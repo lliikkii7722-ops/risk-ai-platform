@@ -24,6 +24,13 @@ export default function Login({ onLogin }) {
       const response = await api.post(url, payload);
 
       localStorage.setItem("token", response.data.token);
+
+      if (response.data.role) {
+        localStorage.setItem("role", response.data.role);
+      } else {
+        localStorage.setItem("role", role);
+      }
+
       onLogin();
     } catch (error) {
       alert(mode === "login" ? "Login failed" : "Registration failed");
