@@ -1,7 +1,15 @@
 
+# AI-Powered Software Risk Analysis Platform
 
-# AI-Powered Software Project Risk Management Platform
-
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Render-blue)](YOUR_RENDER_URL_HERE)
+[![Backend](https://img.shields.io/badge/Backend-Spring%20Boot-brightgreen)]()
+[![Frontend](https://img.shields.io/badge/Frontend-React-blue)]()
+[![Database](https://img.shields.io/badge/Database-MySQL-orange)]()
+[![AI](https://img.shields.io/badge/AI-Ollama%20Llama3.1-purple)]()
+[![API](https://img.shields.io/badge/API-REST%20API-red)]()
+[![Security](https://img.shields.io/badge/Security-JWT-black)]()
+[![Deployment](https://img.shields.io/badge/Deployment-Render-blueviolet)]()
+[![Container](https://img.shields.io/badge/Container-Docker-blue)]()
 ## Overview
 
 AI-Powered Software Project Risk Management Platform is a full-stack web application designed to help organizations identify, analyze, and mitigate software project risks. The platform combines project analytics, resource monitoring, budget tracking, quality assessment, and AI-driven recommendations to improve project success rates.
