@@ -106,7 +106,7 @@ This platform addresses these challenges by providing real-time project insights
 * Render (Backend)
 * Railway (Database)
 
-## System Architecture
+## Screenshot of project
 
 <img width="693" height="659" alt="Screenshot 2026-06-02 202313" src="https://github.com/user-attachments/assets/31415f4b-1c4c-4011-a72c-0e560b2eda45" />
 
@@ -115,7 +115,7 @@ This platform addresses these challenges by providing real-time project insights
 
 <img width="705" height="646" alt="Screenshot 2026-06-02 202329" src="https://github.com/user-attachments/assets/a723f302-9b7f-4498-b0e7-3aeeaa87557a" />
 
-
+## System Architecture
 
 Frontend (React + Vite)
 
